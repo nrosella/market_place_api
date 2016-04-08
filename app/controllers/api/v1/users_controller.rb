@@ -15,10 +15,8 @@ class Api::V1::UsersController < ApplicationController
 	end
 
 	def update
-		user = User.find_by(auth_token: request.headers['Authorization'])
-		# user = current_user
-		# user = User.find(params[:id])
-		# binding.pry
+		user = current_user
+
 		if user.update(user_params)
 			render json: user, status: 200, location: [:api, user]
 		else

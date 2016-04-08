@@ -62,10 +62,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 		context "when is successfully updated" do
 		  before(:each) do
 				@user = FactoryGirl.create :user
-				# patch :update, { id: @user.id, user: { email: "newmail@example.com" } }
-				# binding.pry
 				request.headers['Authorization'] = @user.auth_token
-				# binding.pry
 			end
 
 			it "renders the json representation for the updated user" do
